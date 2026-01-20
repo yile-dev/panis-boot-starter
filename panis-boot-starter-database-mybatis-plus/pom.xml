@@ -12,7 +12,7 @@
     <version>1.0.6-SNAPSHOT</version>
     <name>panis-boot-starter-database-mybatis-plus</name>
     <artifactId>panis-boot-starter-database-mybatis-plus</artifactId>
-    <description>PanisBoot Starter - 数据库 MySQL</description>
+    <description>PanisBoot Starter - 数据库 MyBatis Plus</description>
 
     <dependencies>
         <!-- PanisBoot Starter Common -->

@@ -11,9 +11,9 @@
     </parent>
 
     <version>1.0.6-SNAPSHOT</version>
-    <name>panis-boot-starter-database-mysql</name>
-    <artifactId>panis-boot-starter-database-mysql</artifactId>
-    <description>PanisBoot Starter - 数据库 MySQL</description>
+    <name>panis-boot-starter-database-postgresql</name>
+    <artifactId>panis-boot-starter-database-postgresql</artifactId>
+    <description>PanisBoot Starter - 数据库 PostgreSQL</description>
 
     <dependencies>
         <!-- PanisBoot Starter Common -->
@@ -22,10 +22,10 @@
             <artifactId>panis-boot-starter-common</artifactId>
         </dependency>
 
-        <!-- Mysql Connector -->
+        <!-- PostgreSQL Connector -->
         <dependency>
-            <groupId>com.mysql</groupId>
-            <artifactId>mysql-connector-j</artifactId>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
         </dependency>
 

@@ -16,7 +16,7 @@ PanisBoot Starter
 ├── panis-boot-starter-code-generate -- 代码生成
 ├── panis-boot-starter-common -- 基础模块
 ├── panis-boot-starter-database-mybatis-plus -- MyBatis Plus
-├── panis-boot-starter-database-mysql -- MySQL 数据库
+├── panis-boot-starter-database-postgresql -- PostgreSQL 数据库
 ├── panis-boot-starter-database-redis -- Redis 缓存
 ├── panis-boot-starter-database-sharding -- Sharding 分表分库
 ├── panis-boot-starter-excel -- Excel 导入导出

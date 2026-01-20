@@ -23,10 +23,10 @@ import cn.hutool.core.io.FileUtil;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.config.*;
 import com.baomidou.mybatisplus.generator.config.builder.CustomFile;
-import com.baomidou.mybatisplus.generator.config.converts.MySqlTypeConvert;
+import com.baomidou.mybatisplus.generator.config.converts.PostgreSqlTypeConvert;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
-import com.baomidou.mybatisplus.generator.keywords.MySqlKeyWordsHandler;
-import com.baomidou.mybatisplus.generator.query.SQLQuery;
+import com.baomidou.mybatisplus.generator.keywords.PostgreSqlKeyWordsHandler;
+import com.baomidou.mybatisplus.generator.query.PostgreSqlQuery;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.izpan.starter.code.generator.config.GeneratorConfig;
@@ -76,9 +76,9 @@ public class CodeGeneratorService {
     public static void create(DataSource dataSource, GeneratorConfig generatorConfig) {
         // 数据源配置
         DataSourceConfig dataSourceConfig = new DataSourceConfig.Builder(dataSource)
-                .databaseQueryClass(SQLQuery.class)
-                .typeConvert(new MySqlTypeConvert())
-                .keyWordsHandler(new MySqlKeyWordsHandler())
+                .databaseQueryClass(PostgreSqlQuery.class)
+                .typeConvert(new PostgreSqlTypeConvert())
+                .keyWordsHandler(new PostgreSqlKeyWordsHandler())
                 .build();
 
         // 生成代码

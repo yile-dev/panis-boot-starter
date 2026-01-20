@@ -83,27 +83,54 @@ public class StringUtil {
     }
 
     /**
-     * 将 MySQL 数据类型转换为 Java 类型
+     * 将数据库数据类型转换为 Java 类型（支持 MySQL 和 PostgreSQL）
+     *
+     * @param dbType 数据库数据类型
+     * @return {@link String } Java 类型
+     * @author payne.zhuang
+     * @CreateTime 2024-09-02 - 16:44:28
+     */
+    public static String convertDatabaseTypeToJavaType(String dbType) {
+        if (dbType == null) {
+            return "Object";
+        }
+
+        return switch (dbType.toLowerCase()) {
+            case "character varying", "varchar", "char", "text", "mediumtext", "longtext" -> "String";
+            case "smallint", "integer", "int", "tinyint", "mediumint" -> "Integer";
+            case "bigint", "bigserial", "long" -> "Long";
+            case "serial", "smallserial" -> "Integer";
+            case "real", "float" -> "Float";
+            case "double precision", "double" -> "Double";
+            case "numeric", "decimal" -> "BigDecimal";
+            case "boolean", "bool", "bit" -> "Boolean";
+            case "uuid", "inet", "cidr", "macaddr", "macaddr8" -> "String";
+            case "json", "jsonb" -> "Object";
+            case "date" -> "LocalDate";
+            case "time",
+                 "time without time zone",
+                 "time with time zone",
+                 "datetime",
+                 "timestamp",
+                 "timestamp without time zone",
+                 "timestamp with time zone" -> "LocalDateTime";
+            case "bytea", "blob", "mediumblob", "longblob" -> "byte[]";
+            default -> "Object";
+        };
+    }
+
+    /**
+     * 将 MySQL 数据类型转换为 Java 类型（已废弃，请使用 convertDatabaseTypeToJavaType）
      *
      * @param mysqlType MySQL 数据类型
      * @return {@link String } Java 类型
      * @author payne.zhuang
      * @CreateTime 2024-09-02 - 16:44:28
+     * @deprecated 使用 {@link #convertDatabaseTypeToJavaType(String)} 代替
      */
+    @Deprecated(since = "1.0.6", forRemoval = true)
     public static String convertMySQLTypeToJavaType(String mysqlType) {
-        return switch (mysqlType.toLowerCase()) {
-            case "varchar", "char", "text", "mediumtext", "longtext" -> "String";
-            case "int", "integer", "smallint", "tinyint", "mediumint" -> "Integer";
-            case "bigint" -> "Long";
-            case "float" -> "Float";
-            case "double", "real" -> "Double";
-            case "decimal", "numeric" -> "BigDecimal";
-            case "bit" -> "Boolean";
-            case "date" -> "LocalDate";
-            case "time", "datetime", "timestamp" -> "LocalDateTime";
-            case "blob", "mediumblob", "longblob" -> "byte[]";
-            default -> "Object";
-        };
+        return convertDatabaseTypeToJavaType(mysqlType);
     }
 
     /**

@@ -30,7 +30,7 @@ public class MyBatisPlusConfig {
         // 数据权限
         interceptor.addInnerInterceptor(new DataScopeInterceptor(dataScopeHandler));
         // 分页插件
-        interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.MYSQL));
+        interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.POSTGRE_SQL));
         // 防止全表更新与删除
         interceptor.addInnerInterceptor(new BlockAttackInnerInterceptor());
         return interceptor;
